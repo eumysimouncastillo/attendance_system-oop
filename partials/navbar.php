@@ -19,9 +19,11 @@ $role = $_SESSION['role'] ?? null;
           <li class="nav-item"><a class="nav-link" href="/attendance_system-oop/admin/students.php">Students</a></li>
           <li class="nav-item"><a class="nav-link" href="/attendance_system-oop/admin/courses.php">Courses</a></li>
           <li class="nav-item"><a class="nav-link" href="/attendance_system-oop/admin/attendance.php">Attendance</a></li>
+          <li class="nav-item"><a class="nav-link" href="/attendance_system-oop/admin/excuses.php">Excuse Letters</a></li>
         <?php elseif ($loggedIn && $role === 'student'): ?>
           <li class="nav-item"><a class="nav-link" href="/attendance_system-oop/student/dashboard.php">Student Dashboard</a></li>
           <li class="nav-item"><a class="nav-link" href="/attendance_system-oop/student/attendance.php">Attendance</a></li>
+          <li class="nav-item"><a class="nav-link" href="/attendance_system-oop/student/submit_excuse.php">Excuse Letters</a></li>
         <?php endif; ?>
       </ul>
 

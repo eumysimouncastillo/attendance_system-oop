@@ -44,3 +44,18 @@ CREATE TABLE IF NOT EXISTS attendance (
 
 -- sample default course for convenience
 INSERT INTO courses (name, code, description) VALUES ('Computer Science', 'BSCS', 'Bachelor of Science in Computer Science');
+
+-- excuse letters
+CREATE TABLE IF NOT EXISTS excuse_letters (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  student_id INT NOT NULL,
+  reason TEXT NOT NULL,
+  file_path VARCHAR(255),
+  status ENUM('pending','approved','rejected') DEFAULT 'pending',
+  admin_comment TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  reviewed_at TIMESTAMP NULL DEFAULT NULL,
+  FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
